@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --color-ink: #14163a;
+  --color-muted: #464a72;
+  --color-iris: #3b37b8;
+  --color-iris-dark: #2a2790;
+  --color-violet: #6a3fd0;
+  --color-mist: #f3f2fb;
+  --color-rule: #cfcde8;
+  --color-danger: #a1182b;
+  --color-danger-bg: #fdecef;
+  --color-warn: #7a4a00;
+  --color-warn-bg: #fff4dc;
+  --color-ok: #146c43;
+}
+
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  color: var(--color-ink);
+  background:
+    radial-gradient(1100px 500px at 85% -10%, #e4defa 0%, transparent 60%),
+    radial-gradient(900px 500px at -10% 0%, #dde6fb 0%, transparent 55%),
+    #f8f8fd;
+  min-height: 100vh;
+  line-height: 1.55;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-violet);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.card {
+  background: #fff;
+  border: 1.5px solid var(--color-rule);
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: 0 1px 0 #fff inset, 0 8px 30px -18px rgba(42, 39, 144, 0.35);
+}
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
+  min-height: 3.25rem; padding: 0.6rem 1.25rem;
+  border-radius: 14px; border: 2px solid var(--color-iris);
+  font: inherit; font-weight: 700; font-size: 1.05rem;
+  cursor: pointer; background: #fff; color: var(--color-iris-dark);
+  transition: background-color .15s, color .15s;
+}
+.btn:hover:not(:disabled) { background: var(--color-mist); }
+.btn:disabled { opacity: .6; cursor: not-allowed; }
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-iris), var(--color-violet));
+  color: #fff; border-color: var(--color-iris-dark);
+}
+.btn-primary:hover:not(:disabled) { background: linear-gradient(135deg, var(--color-iris-dark), #5530b8); }
+.btn-listening { background: var(--color-iris-dark); color: #fff; }
+
+.chip {
+  font: inherit; font-size: 0.95rem; cursor: pointer;
+  padding: 0.4rem 0.85rem; min-height: 2.5rem;
+  border-radius: 999px; border: 1.5px solid var(--color-rule);
+  background: var(--color-mist); color: var(--color-ink);
+}
+.chip:hover { border-color: var(--color-iris); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .spin { animation: spin 1s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+}
